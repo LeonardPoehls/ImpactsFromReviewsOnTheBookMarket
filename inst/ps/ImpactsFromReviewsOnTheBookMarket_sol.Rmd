@@ -766,7 +766,7 @@ data <- readRDS("material/dataEst.RDS") %>%
 #>
 ```
 
-Two dummy variables are added below to distinguish between the occurrence of all reviews from all magazines and from non-New York Times magazines.  
+Two dummy variables are added below to distinguish between the occurrence of all reviews from all magazines and from non-New York Times magazines. 
 
 **Task:** Create these variables that indicate `1` when an observation belongs to a book that has been reviewed. Also, read in the data set `DesRat` and save it accordingly, and then `check` the chunk.
 
@@ -1049,7 +1049,7 @@ dataNYTPrice
 
 ```
  
-Similar to figure 5 and 6, mean prices and sales ranks based on are generated two show differences in prices and sales ranks among the expressions of New York Times reviews.  
+Similar to figure 5 and 6, mean prices and sales ranks based on are generated two show differences in prices and sales ranks among the expressions of New York Times reviews.   
  
 **Task:** Try to fill in the gaps to create the following plot `f3`. The x-axis should represent the `Category` and the y-axis should represent the `Price`. Use `geom_text` to label the bars. Then, read in and the save the plot `f4` correspondingly. Finally, use `grid.arrange` to plot these graphs side by side. Press `check` to confirm.  
  
@@ -1125,7 +1125,7 @@ success: Great, your answer is correct!
 failure: Try again.
 #>
 
-To verify whether absolute book prices remain constant over time, we create a timeline for the average book price. We only monitor mean prices of books that have been listed at least once at sales rank 10.000 or better or 1.000 or better. 
+To verify whether absolute book prices remain constant over time, we create a timeline for the average book price. We only monitor mean prices of books that have been listed at least once at sales rank 10000 or better or 1000 or better.  
 
 **Task:** Create two according vectors. Save these vectors under `books10k` and `books1k`. Press `check` to confirm your results. 
 
@@ -1192,11 +1192,11 @@ Overall, prices rise within one year by approximately 1 USD. Price collapses can
 
 **Summary**
 
-Using descriptive analysis, we have gained deeper insight into the data and were able to establish initial associations between variables related to pre-purchase information and price or quantity (sales ranks). Starting with an overview of the occurrence of professional evaluations, we have created a table displaying the relative and absolute proportion of these reviews among all observations in the data set. Then, we have created an overview over general values of the underlying data set and compared them with the same value filtered on professional reviewed data. We have recognized differences at all values. We have delved deeper into our research regarding price and sales rank and found that both professional ratings (NYT and non-NYT) have a negative impact on sales ranks (lower rank means higher sales). Finally, we have checked whether book prices fluctuate within a year and found that the price varies seasonally within a year. 
+Using descriptive analysis, we have gained deeper insight into the data and were able to establish initial associations between variables related to pre-purchase information and price or quantity (sales ranks). Starting with an overview of the occurrence of professional evaluations, we have created a table displaying the relative and absolute proportion of these reviews among all observations in the data set. Then, we have created an overview over general values of the underlying data set and compared them with the same value filtered on professional reviewed data. We have recognized differences at all values. We have delved deeper into our research regarding price and sales rank and found that both professional ratings (NYT and non-NYT) appear to have a negative impact on sales ranks (lower rank means higher sales). Finally, we have checked whether book prices fluctuate within a year and found that the price varies seasonally within a year. 
 
 In the following chapter, we will start working through the empirical part of this problem set. 
 
-## Exercise 3 -- Empirical Strategies on Sales Ranks and Prices
+# Exercise 3 -- Empirical Strategies on Sales Ranks and Prices
 
 In following chapter *Empirical Strategies on Sales Ranks and Prices* we focus on empirical methods in general and their application to real data from Amazon. 
 
@@ -1204,11 +1204,11 @@ First, we implement a naive regression around Amazon star ratings, where we cont
 
 In chapter 3.2, we focus on the replication of the main regression originally created by Reimers and Waldfogel. We discuss different of those effects and deepen the examination with further regressions. Based on these regressions on real data, we also focus on the validity of regressions and the explanation of values that inform them. 
 
-Chapter 3.3 explains the subject of event studies. We also conduct two event studies based on the underlying data set to identify long- and short-term reactions of sales ranks and prices to professional reviews. We also focus on intersections between different magazines and specific distributions to uncover issues in the study structure.  
+Chapter 3.3 explains the subject of event studies. We also conduct two event studies based on the underlying data set to identify long- and short-term reactions of sales ranks and prices to professional reviews. Finally, We focus on intersections between different magazines and specific distributions to uncover issues in the study structure.  
 
 Working through this chapter will provide fundamentals to advanced empirical strategies that are used to make predictive statements in economic science. 
 
-### Structure
+**Structure**
 
 3.1 Initial econometric studies on crowd ratings
  
@@ -1361,7 +1361,7 @@ modelsummary(list(regWFE, regFE), statistic = "({std.error})", coef_rename = c("
 
 ```
 
-Column two in table 3 shows the fixed effects estimate, while column one shows the regular regression. It is noticeable that the regressions estimate completely different values for the coefficients. The regular regression seems to show exactly that endogeneity problem, that the Amazon star rating also depends on the country and title specific effects. Using fixed effects, we reduced these effects and obtained the information that the Amazon star rating and the sales rank are not as strong related as we originally assumed. Without fixed effects, we obtained a coefficient of -1.981 and with fixed effects -0.319. Finally, we recognize massive differences in the $R^2$ value with 0.014 and 0.914 with fixed effects. This phenomenon reinforces the assumption that especially on title and country level large variations of the error term regarding star ratings occur. 
+Column two in table 3 shows the fixed effects estimate, while column one shows the regular regression. It is noticeable that the regressions estimate completely different values for the coefficients. The regular regression seems to show exactly that endogeneity problem, that the Amazon star rating also depends on the country and title specific effects. Using fixed effects, we reduced these effects and obtained the information that the Amazon star rating and the sales rank are not as strong related as we originally assumed. Without fixed effects, we obtained a coefficient of -1.981 and with fixed effects -0.319. Finally, we recognize massive differences in the $R^2$ value with 0.014 and 0.914 with fixed effects. This phenomenon reinforces the assumption that especially on title and country level large variations of the error term regarding star ratings occur.  
 
 #< quiz "Compare_FE_NFE"
 question: What do these coefficients tell us? 
@@ -1430,11 +1430,11 @@ modelsummary(list(regContrVar, regFE), coef_rename = c("lR" = "log Amazon Star R
 
 The first column in table 4 contains the estimated coefficients with added control variables. The estimate value of `Amazon Star Rating` indicates that an increase of price by one percent on average results in an decrease of the sales rank by 0.416 percent which represents a stronger negative effect than without the addition of control variables (-0.319). We also detect a positive effects from `Amazon Price` and `Number of Ratings` on the sales rank and thus negative effects on the sales quantity. 
 
-The $R^2$ Value indicates large numbers of 0.918 and 0.914, while the standard error is larger for the multiple regression. In a regression analysis, the standard error provides information on the precision of the estimated regression coefficients. To reduce these and make them even more precise, *robust standard errors* are one method to accomplish this.  
+The $R^2$ Value indicates large numbers of 0.918 and 0.914, while the standard error is larger for the multiple regression. In a regression analysis, the standard error provides information on the precision of the estimated regression coefficients. To reduce these and make them even more precise, *robust standard errors* are one method to accomplish this.    
 
 **Robust Standard Errors**
 
-To apply regressions correctly, certain assumptions must be made. One of these assumptions is **homoskedasticity**. To fulfill this assumption, the residuals of the regression must be uniformly distributed. **Robust Statistics** addresses making estimates that are insensitive to small changes in the basic assumptions like outlier values falsifying the regression residuals (Rachev, 2007). In R, there are different methods to implement Robust Standard Errors, all of which follow a similar approach. Basically, this algorithm determines the coefficients by disregarding outlier values and other disruptive factors. 
+To apply regressions correctly, certain assumptions must be made. One of these assumptions is **homoskedasticity**. To fulfill this assumption, the residuals of the regression must be uniformly distributed.**Robust Statistics** addresses making estimates that are insensitive to small changes in the basic assumptions like outlier values falsifying the regression residuals (Rachev, 2007). In R, there are different methods to implement Robust Standard Errors, all of which follow a similar approach. Basically, this algorithm determines the coefficients by disregarding outlier values and other disruptive factors. 
 
 We want to compare the regression above with the same regression using robust standard errors. 
 
@@ -1470,7 +1470,7 @@ failure: Try again.
 
 **Summary**
 
-To sum up, this chapter has given us a overview about the methods and tools for the following analysis with the regressions used by the authors. First, we compared a "naive" regression with a linear regression using fixed effects. As a result, we found large differences in coefficients and in the $R^2$ value in table 3. Further, we distinguished between linear and multiple regressions and how the addition of the control variables `pamzn` and `lreview` potentially affect the main coefficient for Amazon star ratings. Multiple differences in coefficients have been found and explained. Finally, the effect of Robust Standard Errors was discussed and implemented in R. We extracted the information that inserting Robust Standard Errors can be quite useful to ensure homoskedasticity. Application on the Amazon data set underscored the utility and potential of fixed effects, robust standard errors, and control variables for subsequent examinations. 
+To sum up, this chapter has given us a overview about the methods and tools for the following analysis with the regressions used by the authors. First, we compared a "naive" regression with a linear regression using fixed effects. As a result, we have found large differences in coefficients and in the $R^2$ value in table 3. Further, we have distinguished between linear and multiple regressions and how the addition of the control variables `pamzn` and `lreview` potentially affect the main coefficient for Amazon star ratings. Multiple differences in coefficients have been found and explained. Finally, the effect of Robust Standard Errors have been discussed and implemented in R. We have extracted the information that inserting Robust Standard Errors can be quite useful to ensure homoskedasticity. Application on the Amazon data set underscored the utility and potential of fixed effects, robust standard errors, and control variables for subsequent examinations. 
 
 In the following chapter, we apply the methods and tools from this chapter to examine the overall effects on sales ranks and prices.
 
@@ -1537,7 +1537,7 @@ reg2 <- feols(lrank ~ L1.lrank + lpamzn + lreview + lR  + dnytpost1_3 + dnytpost
 #>
 ```
 
-Computing regressions in this high-frequency data set requires high computational power, so it usually takes time to compute the problem set. Now, we want to generate the second regression using more explanatory variables. 
+Computing regressions in this high-frequency data set requires high computational power, so it usually takes time to compute the problem set. Now, we want to generate the second regression using more explanatory variables.  
 
 **Task:** Create `reg3` according to `reg2` above. Add the explanatory variables `lrR`, `dnytpost10_1`, `dnytpost10_2`, `dothpost_1`, `dothpost_2`, `dothpost10_1` and `dothpost10_2` behind the variable `eneg`. Remove the explanatory variables `dothpostpre_1`, `dothpostpre_2` and `dothpostpre_3`.
 
@@ -1551,7 +1551,7 @@ reg3 <- feols(lrank ~ L1.lrank + lpamzn + lreview + lR + dnytpost1_3 + dnytpost6
 
 The variable `ano` indicates an Amazon identifier (asin) and the numbers `1`, `2` and `3` after the dummy variables `dnytpost` and `dothpost` provide information about which country the observation belongs to. U.S. data were used for both regressions.  
 
-Subsequently, the three remaining regressions are then read in. To the first regression `reg1` some dummy variables were added as control variables. These dummy variables  For performance reasons we have omitted these variables in this task, but they are stored in `reg1` which we will read in. In the interval $[-20;40]$ for `NYT_elapse` and `OTH_elapse` all expressions were stored individually in different dummy variables, in sum 120 control variables.
+Subsequently, the three remaining regressions are then read in. To the first regression `reg1` some dummy variables were added as control variables. In the interval $[-20;40]$ for `NYT_elapse` and `OTH_elapse` all expressions were stored individually in different dummy variables, in sum 120 control variables.
 
 **Task:** check the following chunk to run `reg1`, `reg4` and `reg5`. 
 
@@ -1566,7 +1566,7 @@ reg5 <- feols(lrank ~ L1.lrank + lpamzn + lreview + lR + lrR + dnytpost1_1 + dny
 
 ```
 
-After all regressions are available, proceed with the generation of a regression table for comparison purposes. For this purpose, we use the function `modelsummary`, which can display multiple regressions more clearly and with more possibilities than `summary`.
+After all regressions are available, we create a regression table for comparison purposes. For this purpose, we use the function `modelsummary`, which can display multiple regressions more clearly and with more possibilities than `summary`.
 
 **Task:** Use the function `modelsummary` from the R package `modelsummary` to display the five regressions `reg1`, `reg2`, `reg3`, `reg4` and `reg5`. Do not forget to `check` this chunk. 
 
@@ -1584,7 +1584,7 @@ RegTable <- modelsummary(list(reg1, reg2, reg3, reg4, reg5), statistic = "({std.
 
 ```
 
-The results from table 7 deviate from the underlying results of Reimers and Waldfogel. This deviation is likely due to the variable `L1.lrank`, which is originally calculated with an specific Stata (the programming language used by the authors for the original data processing) function called `L1`. For my calculation of this variable I created a manual function. It can be seen that, the coefficient for `L1.lrank` turns out to be lower than calculated by the authors (Reimers and Waldfogel, 2021, table 2). Consequently, the actual effect of seasonal effects emanating from the variable `L1.lrank` could potentially be smaller than calculated by Reimers and Waldfogel. 
+The results from table 7 deviate from the underlying results of Reimers and Waldfogel. This deviation is likely due to the variable `L1.lrank`, which is originally calculated with an specific Stata (the programming language used by the authors for the original data processing) function called `L1`. For my calculation of this variable I created a manual function. It can be seen that, the coefficient for `L1.lrank` turns out to be lower than calculated by the authors (Reimers and Waldfogel, 2021, table 2). Consequently, the actual effect of seasonal effects emanating from the variable `L1.lrank` could potentially be smaller than calculated by Reimers and Waldfogel.  
 
 #< quiz "Reg_Assumptions"
 question: Which of these assumptions can be made? 
@@ -1708,7 +1708,7 @@ sum(dataESOTH$Sum_observations)
 
 ```
 
-A total of 46641 observations are available for the New York Times and 11917 observations are available for other magazines in the U.S. during this period. This corresponds to a number of 1193 and 322 books. The next step is to create a regression as follows:    
+A total of 46641 observations are available for the New York Times and 11917 observations are available for other magazines in the U.S. during this period. This corresponds to a number of 1193 and 322 books. The next step is to create a regression as follows:       
 
 $$ LogSalesRank = β_0 + β_1LogLaggedSalesRank + β_2LogPrice + β_3LogNumberOfReviews + β_4LogStarRating + \varepsilon $$
 
@@ -1723,7 +1723,7 @@ reg7 <- feols(lrank ~ L1.lrank + lpamzn + lreview + lR | canum, vcov = "hetero",
 
 ```
 
-Now, this approach consists in aggregation the regression residuals on the filtered variable `NYT_elapse`. Before that, however, the residuals must be adjusted so that they have a value of zero for `NYT_elapse = -1`. This ensures that we can ideally estimate the effects after the event starts. 
+Now, this approach consists in aggregation the regression residuals on the filtered variable `NYT_elapse`. Before that, however, the residuals must be adjusted so that they have a value of zero for `NYT_elapse = -1`. This ensures that we can ideally estimate the effects after the event starts.  
 
 **Task:** `Check` the following Code to adjust the residuals from `reg7`. 
 
@@ -1737,7 +1737,7 @@ reg7$residuals <- reg7$residuals - mean(reg7$residuals[which(dataUS$NYT_elapse =
 
 **Note:** The command `reg7$residuals` provides access to every single residual from `reg7`. 
 
-Further, we aggregate the residuals on `NYT_elapse`. As a result, for each expression of `NYT_elapse`, an average residual is generated.
+Further, we aggregate the residuals on `NYT_elapse`. As a result, for each expression of `NYT_elapse`, an average residual is generated..
 
 #< info "How to use the function `aggregate()`"
 
@@ -1768,7 +1768,7 @@ reg7_agg <- aggregate(reg7$residuals, by = list(dataUS$NYT_elapse), FUN = mean)
 
 ```
 
-The variables `Max95` and `Min95` are indicating the 95 percent *confidence interval*. A confidence interval indicates to x percent (here: 95 percent) how probable it is that the actual value is in this interval or graphical range. 
+The variables `Max95` and `Min95` are indicating the 95 percent *confidence interval*. A confidence interval indicates to x percent (here: 95 percent) how probable it is that the actual value is in this interval or graphical range.
 
 **Task:** Create a `ggplot`- graph to visualize the average residuals on the y-axis and `NYT_elapse` on the x-axis. Add a vertical line to illustrate the day before the review was published. Information can be found [here](https://www.rdocumentation.org/packages/ggplot2/versions/0.9.1/topics/geom_vline).
 
@@ -1801,7 +1801,7 @@ ESNYT <- ggplot(reg7_aggr, aes(x = NYT_elapse, y = Avg.Sales.rank)) +
 ESNYT 
 ```
 
-As figure 9 shows, a published review in the New York Times is associated with a huge increase in log sales rank of about 0.40 units. After almost two weeks, the sales ranks returns to its base. The proximity of the confidence interval line to the main line indicates a high level of significance. Analogous, we implement the same event study for all other journals. 
+As figure 9 shows, a published review in the New York Times is associated with a huge increase in log sales rank of about 0.40 units. After almost two weeks, the sales ranks returns to its base. The proximity of the confidence interval line to the main line indicates a high level of significance. Analogous, we implement the same event study for all other journals.
 
 **Task:** According to above, adjust the residuals on `OTH_elapse = 1` and call it `reg7.1$residuals`. Furthermore, create `reg7.1_agg` with `aggregate()` on the variable `OTH_elapse`. Finally, add the minimum and maximum value of the 95 percent confidence interval. 
 
@@ -1875,7 +1875,7 @@ kbl(col.names = c("Intersection_NYT" = "∩ New York Times", "Intersection_LAT" 
 
 By focusing on New York Times reviews, we found several 201 books were reviewed by at least one other magazine. Conversely, a larger proportion of the reviews from other magazines were also rated by the New York Times. To determine the exact proportion, we calculated that at least 30 percent (Wall Street Journal) and at most 67 percent (Boston Globe) of non-New York Times magazines were also reviewed by the New York Times. As a result, estimates in this regard may be contaminated. In this context, contamination are intersections resulting from overlaps, whereby respective effects can no longer be clearly assigned. The row or column sum does not reflect the total number of reviews in the journals, as we only consider individual overlays. In reality, there are also multiple overlays where three or four journals review one book. 
 
-Similarly, an uneven distribution of professional ratings in terms of author name recognition could lead to possible bias. For instance, if professional reviewers at the New York Times prefer certain well-known authors because of personal relations or preferences, those reviewers might tend to review or even recommend just those books rather than other books. The same applies for preferences to particular genres of the reviewers. Below, we use a density function to examine whether the professional reviewers at the New York Times and other magazines had any preference in selecting the books to be evaluated. 
+Similarly, an uneven distribution of professional ratings in terms of author name recognition could lead to possible bias. For instance, if professional reviewers at the New York Times prefer certain well-known authors because of personal relations or preferences, those reviewers might tend to review or even recommend just those books rather than other books. The same applies for preferences to particular genres of the reviewers. Below, we use a density function to examine whether the professional reviewers at the New York Times and other magazines had any preference in selecting the books to be evaluated.  
 
 **Task:** Create a data set `DesGenre` in which you calculate the proportion of professional reviews per book title. Differentiate according to the genre of the books (`genre`). Do not forget to check your solution. 
 
@@ -1966,7 +1966,7 @@ f11
 
 ```
 
-Every underlying bar in figure 11 represents the density of professional reviews on the individual book genre. In total, the Amazon data set provides information on 121 different book genres, which are arranged equally in the diagram to show similarities and differences. The aim is to identify possible distributional skews that might reject the assumption of an even selection process by professional reviewers. Apparently, the New York Times and other magazines prefer to rate some of the genre categories more frequently than others. However, with the exception of about one-tenth of the book genres, the probability density for other books does not appear uniformly. 
+Every underlying bar in figure 11 represents the density of professional reviews on the individual book genre. In total, the Amazon data set provides information on 121 different book genres, which are arranged equally in the diagram to show similarities and differences. The aim is to identify possible distributional skews that might reject the assumption of an even selection process by professional reviewers. Apparently, the New York Times and other magazines prefer to rate some of the genre categories more frequently than others. However, with the exception of about one-fourth of the book genres, the probability density for other books does not appear uniformly. 
 
 #< quiz "Genre_Guess"
 question: What could this probably be due to?
@@ -2050,11 +2050,11 @@ ESNYTNew
 
 ```
 
-As figure 13 shows, there are almost no deviations from previous diagram. However, event studies also entail some disadvantages. First, the mean-adjusted method does not work that well. This is due to the fact that if many of these events occur simultaneously, possible seasonal fluctuation or other endogenous effects cannot be ruled out (V. Henderson Jr, 1990, pp. 288) As a result, the time period must be well chosen. Furthermore, event studies cannot provide causal evidence. Finally, other effects also influence the estimation, especially when the regression consists of only four explanatory variables.
+As figure 13 shows, there are almost no deviations from figure 9. However, event studies also entail some disadvantages. First, the mean-adjusted method does not work that well. This is due to the fact that if many of these events occur simultaneously, possible seasonal fluctuation or other endogenous effects cannot be ruled out (V. Henderson Jr, 1990, pp. 288) As a result, the time period must be well chosen. Furthermore, event studies cannot provide causal evidence. Finally, other effects also influence the estimation, especially when the regression consists of only four explanatory variables.
 
 **Summary** 
 
-Event Studies are useful methods to illustrate the effect of events occurring at different times. We received information about the origin of event studies and how they work in general. We then focused on the implementation of event studies in R using so-called cross functional models, which can estimate the effect on a chronological sequence using aggregated residuals. We replicated these event studies from Reimers and Waldfogel and differentiated between New York Times reviews and reviews from other journals. While New York Times reviews show large effects on log sales rank, the estimate of the effect for other journals differs from the authors' estimate, making it unusable. In the course of a validity check, we focused on the distribution of the selection process of books of the professional reviewers and possible contamination of the effects. We measured a high degree of contamination for non-New York Times magazines and found partially unequal distributions regarding the selection process of books. Finally, we conducted a repeat event study of the New York Times considering contamination and found similar results as before. 
+Event Studies are useful methods to illustrate the effect of events occurring at different times. We have received information about the origin of event studies and how they work in general. We then focused on the implementation of event studies in R using so-called cross functional models, which can estimate the effect on a chronological sequence using aggregated residuals. We replicated these event studies from Reimers and Waldfogel and differentiated between New York Times reviews and reviews from other journals. While New York Times reviews show large effects on log sales rank, the estimate of the effect for other journals differs from the authors' estimate, making it unusable. In the course of a validity check, we focused on the distribution of the selection process of books of the professional reviewers and possible contamination of the effects. We measured a high degree of contamination for non-New York Times magazines and found partially unequal distributions regarding the selection process of books. Finally, we conducted a repeat event study of the New York Times considering contamination and found similar results as before. 
 
 In chapter 4., we link sales ranks to sales quantities to determine and examine price elasticities.
 
@@ -2075,7 +2075,7 @@ success: Great, your answer is correct!
 failure: Try again.
 #>
 
-In the following, not only price elasticities are calculated, but also elasticities from professional valuations and Amazon star ratings. Calculating these elasticities, Reimers and Waldfogel used the following formula:  
+In the following, not only price elasticities are calculated, but also elasticities from professional valuations and Amazon star ratings. Calculating these elasticities, Reimers and Waldfogel used the following formula:   
 
 $$
  \epsilon = \frac{B*Coefficient \ of \ Elasticity}{1 - Coefficient \ of \  Lagged Log Sales Rank} 
@@ -2085,7 +2085,7 @@ The underlying formula draws a long-term estimated and dynamic elasticity model.
 
 $$\beta_1 + \beta_1 \cdot \beta_2 + \beta_1 \cdot \beta_2^2 + ... = \beta_1 \sum^{\infty}_{t=0} \beta_2^t = \frac{\beta_1}{1-\beta_2}$$
 
-Hence, the extent to which these variables can change over time is to be stored in the variable `L1.lrank`. Due to the fact, that at least the coefficient for Amazon star ratings depends on exogenous time trends we use a static short-term model that assumes that these variables respond immediately to changes (here: professional and non-professional ratings). The formula is as follows: 
+Hence, the extent to which these variables can change over time is to be stored in the variable `L1.lrank`. Due to the fact, that at least the coefficient for Amazon star ratings depends on exogenous time trends we use a static short-term model that assumes that these variables respond immediately to changes (here: professional and non-professional ratings). The formula is as follows:
 
 $$
  \epsilon = {B*Coefficient \ of \ Elasticity}
@@ -2185,7 +2185,7 @@ dataUS$nyt_11_20_rec <- nyt_11_20_rec
 
 After collecting all elasticity values, we create a table to visualize them. The authors also created standard errors for the estimated elasticity values using a bootstrapping procedure. Basically, in addition to a variance-covariance matrix, they created normally distributed random variables to calculate within a bootstrapping procedure standard errors the elasticities that are present for us. For reasons of performance, these calculations will have no relevance in the further course. 
 
-Let us illustrate these elasticities in a table. 
+Let us illustrate these elasticities in a table.
 
 **Task:** First, create a data set with `data.frame` to list all elasticity values. Then, use `kbl()` to create a table containing the elasticity values. Fill in the ___ gaps and press `check` to confirm your input. 
 
@@ -2270,7 +2270,7 @@ In the boot-strapping process, the authors estimated an annual average effect of
 
 In order to be able to make economic statements about price elasticity and actual demand with the help of the relative investigations of Amazon Sales Ranks, absolute sales figures are required. To generate these, the authors created an exponential formula based on sales numbers from the Nielsen Company and earlier research from Chevalier and Goolsbee (2003). As a result, it has become possible to estimate sales figures and thus determine price elasticities accordingly. In addition to the price elasticities, we examined the static elasticity effects of professional reviews and crowd ratings and estimated an effect of Amazon star ratings of about 1.5 percent and of New York Times reviews of about 14.3 percent. However, these elasticities are based on a simple static model that significantly underestimates the effect on sales. 
 
-Once you have worked through this chapter, you will have completed the content portion of this problem set and will move on to the conclusion.  
+Once you have worked through this chapter, you will have completed the content portion of this problem set and will move on to the conclusion. 
 
 ## Exercise 5 -- Conclusion 
 
